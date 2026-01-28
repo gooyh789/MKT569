@@ -59,24 +59,15 @@ col3.metric("Complaint Density", f"{complaint_density:.2f}")
 col4, col5 = st.columns(2)
 
 # Boxplot
+import seaborn as sns
+
 with col4:
     st.subheader("📦 Rating Distribution")
-    fig, ax = plt.subplots(figsize=(5,3))
-
-    df.boxplot(
-        column='Rate',
-        by='Branch',
-        ax=ax,
-        boxprops=dict(color='black', linewidth=1.5),
-        medianprops=dict(color='red', linewidth=2),
-        whiskerprops=dict(color='gray', linewidth=1.5),
-        capprops=dict(color='gray', linewidth=1.5),
-        flierprops=dict(marker='o', markersize=4, markerfacecolor='blue')
-    )
-
-    ax.set_title("")
-    plt.suptitle("")
+    fig, ax = plt.subplots(figsize=(6,4))
+    sns.boxplot(data=df, x='Branch', y='Rate', palette='Set2', width=0.5, linewidth=1.5)
+    ax.set_title("Rating Distribution by Branch")
     ax.set_ylabel("Rating")
+    ax.set_xlabel("Branch")
     st.pyplot(fig)
 
 # Line Chart
