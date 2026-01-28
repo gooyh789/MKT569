@@ -16,9 +16,9 @@ df = pd.read_csv("reviews_data.csv")
 st.title("⭐ Starbucks Review Dashboard (Danbury & Nearby Branches)")
 # 1단: 지표 3개 가로 배치
 col1, col2, col3 = st.columns(3)
-col1.metric("Average Rating", ...)
-col2.metric("Low Rating Ratio", ...)
-col3.metric("Complaint Density", ...)
+col1.metric("Average Rating", f"{avg_rate:.2f}")
+col2.metric("Low Rating Ratio", f"{low_ratio:.2%}")
+col3.metric("Complaint Density", f"{complaint_density:.2f}")
 
 # 2단: Boxplot + Lineplot 나란히
 col4, col5 = st.columns(2)
