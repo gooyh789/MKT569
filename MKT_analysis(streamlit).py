@@ -14,21 +14,6 @@ st.set_page_config(page_title="Starbucks Review Dashboard", layout="wide")
 df = pd.read_csv("reviews_data.csv")
 
 st.title("⭐ Starbucks Review Dashboard (Danbury & Nearby Branches)")
-# 1단: 지표 3개 가로 배치
-col1, col2, col3 = st.columns(3)
-col1.metric("Average Rating", f"{avg_rate:.2f}")
-col2.metric("Low Rating Ratio", f"{low_ratio:.2%}")
-col3.metric("Complaint Density", f"{complaint_density:.2f}")
-
-# 2단: Boxplot + Lineplot 나란히
-col4, col5 = st.columns(2)
-col4.pyplot(boxplot_fig)
-col5.line_chart(trend_data)
-
-# 3단: Wordcloud + Top Keywords
-col6, col7 = st.columns([2, 1])
-col6.pyplot(wordcloud_fig)
-col7.table(df_wc.head(20))
 
 # -----------------------------
 # 2) Preprocessing
