@@ -62,9 +62,21 @@ col4, col5 = st.columns(2)
 with col4:
     st.subheader("📦 Rating Distribution")
     fig, ax = plt.subplots(figsize=(5,3))
-    df.boxplot(column='Rate', by='Branch', ax=ax)
-    plt.title("")
+
+    df.boxplot(
+        column='Rate',
+        by='Branch',
+        ax=ax,
+        boxprops=dict(color='black', linewidth=1.5),
+        medianprops=dict(color='red', linewidth=2),
+        whiskerprops=dict(color='gray', linewidth=1.5),
+        capprops=dict(color='gray', linewidth=1.5),
+        flierprops=dict(marker='o', markersize=4, markerfacecolor='blue')
+    )
+
+    ax.set_title("")
     plt.suptitle("")
+    ax.set_ylabel("Rating")
     st.pyplot(fig)
 
 # Line Chart
