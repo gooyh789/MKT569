@@ -13,7 +13,7 @@ st.set_page_config(page_title="Starbucks Review Dashboard", layout="wide")
 # -----------------------------
 df = pd.read_csv("reviews_data.csv")
 
-st.title("⭐ Starbucks Review Dashboard")
+st.title("⭐ Starbucks Review Dashboard (3 branches in Danbury)")
 
 # -----------------------------
 # Preprocessing
